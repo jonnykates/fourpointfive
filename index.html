@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Four Point Five</title>
+</head>
+<body>
+  <h1>Four Point Five</h1>
+
+  <form>
+    <fieldset>
+      <div class="field-group">
+        <label for="foreground-input">Foreground colour</label>
+        <input type="text" id="foreground-input" name="foreground-input" value="#1ABC9C" required onblur="contrastChecker();" maxlength="7" />
+      </div>
+      <div class="field-group">
+        <label for="background-input">Background colour</label>
+        <input type="text" id="background-input" name="background-input" value="#ffffff" required onblur="contrastChecker();" maxlength="7" />
+      </div>
+    </fieldset>
+  </form>
+
+  <div>
+    <div class="detail-group">
+      <span class="detail__label">Contrast ratio: </span>
+      <span class="detail__value" id="contrast-ratio"></span>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
