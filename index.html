@@ -12,7 +12,7 @@
     <fieldset>
       <div class="field-group">
         <label for="foreground-input">Foreground colour</label>
-        <input type="text" id="foreground-input" name="foreground-input" value="#1ABC9C" required onblur="contrastChecker();" maxlength="7" />
+        <input type="text" id="foreground-input" name="foreground-input" value="#1abc9c" required onblur="contrastChecker();" maxlength="7" />
       </div>
       <div class="field-group">
         <label for="background-input">Background colour</label>
@@ -26,8 +26,14 @@
       <span class="detail__label">Contrast ratio: </span>
       <span class="detail__value" id="contrast-ratio"></span>
     </div>
+    <div class="detail-group" id="detail-group__target">
+      <span class="detail__label">You should change your <span id="target__source"></span> colour to <strong><span id="target__hex"></span></strong></span>
+      <span>(<span id="target__percentage"></span>% darker than <span id="target__original"></span>).</span>
+      <span>Your new contrast ratio would be <span id="target__new-ratio"></span>.</span>
+    </div>
   </div>
 
+  <script src="/pSBC.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

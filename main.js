@@ -8,26 +8,19 @@ const validHexColour = (colour) => {
   return true;
 };
 
-const hexToRgb = (hex) => {
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result
-    ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16),
-      }
-    : null;
-};
+const hexToLuminosity = (hex) => {
+  const hexToRgbRegex = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i;
 
-const rgbToLuminosity = (rgbObject) => {
-  var colourComponents = {
-    r: null,
-    g: null,
-    b: null,
+  let rgb = hexToRgbRegex.exec(hex);
+
+  rgb = {
+    r: parseInt(rgb[1], 16),
+    g: parseInt(rgb[2], 16),
+    b: parseInt(rgb[3], 16),
   };
 
-  for (colour in rgbObject) {
-    var colourLuminosity = rgbObject[colour] / 255;
+  for (colour in rgb) {
+    var colourLuminosity = rgb[colour] / 255;
 
     if (colourLuminosity < 0.03938) {
       colourLuminosity = colourLuminosity / 12.92;
@@ -35,17 +28,14 @@ const rgbToLuminosity = (rgbObject) => {
       colourLuminosity = Math.pow((colourLuminosity + 0.055) / 1.055, 2.4);
     }
 
-    colourComponents[colour] = colourLuminosity;
+    rgb[colour] = colourLuminosity;
   }
 
-  colourComponents.r = colourComponents.r * 0.2126;
-  colourComponents.g = colourComponents.g * 0.7152;
-  colourComponents.b = colourComponents.b * 0.0722;
+  rgb.r = rgb.r * 0.2126;
+  rgb.g = rgb.g * 0.7152;
+  rgb.b = rgb.b * 0.0722;
 
-  const luminosity =
-    colourComponents.r + colourComponents.g + colourComponents.b;
-
-  return luminosity;
+  return rgb.r + rgb.g + rgb.b;
 };
 
 const contrastRatioBetweenTwoLuminosities = (luminanceOne, luminanceTwo) => {
@@ -58,6 +48,8 @@ const contrastRatioBetweenTwoLuminosities = (luminanceOne, luminanceTwo) => {
 };
 
 const contrastChecker = () => {
+  document.getElementById("detail-group__target").classList.add("hidden");
+
   const foregroundHexColour = document.getElementById("foreground-input").value;
   const backgroundHexColour = document.getElementById("background-input").value;
 
@@ -69,18 +61,60 @@ const contrastChecker = () => {
     return;
   }
 
-  const foregroundRgbColour = hexToRgb(foregroundHexColour);
-  const backgroundRgbColour = hexToRgb(backgroundHexColour);
-
-  const foregroundLuminosity = rgbToLuminosity(foregroundRgbColour);
-  const backgroundLuminosity = rgbToLuminosity(backgroundRgbColour);
+  const foregroundLuminosity = hexToLuminosity(foregroundHexColour);
+  const backgroundLuminosity = hexToLuminosity(backgroundHexColour);
 
   const contrastRatio = contrastRatioBetweenTwoLuminosities(
     foregroundLuminosity,
     backgroundLuminosity
   );
 
-  document.getElementById("contrast-ratio").innerHTML = contrastRatio;
+  document.getElementById("contrast-ratio").innerHTML = `${contrastRatio}:1`;
+
+  if (contrastRatio < 4.5) {
+    const targetSource =
+      foregroundLuminosity < backgroundLuminosity ? "foreground" : "background";
+
+    let targetHexColour =
+      foregroundLuminosity < backgroundLuminosity
+        ? foregroundHexColour
+        : backgroundHexColour;
+
+    const targetHexColourOriginal = targetHexColour;
+
+    const staticHexColour =
+      targetHexColour == foregroundHexColour
+        ? backgroundHexColour
+        : foregroundHexColour;
+
+    let percentageDarker = 0;
+
+    while (
+      contrastRatioBetweenTwoLuminosities(
+        hexToLuminosity(targetHexColour),
+        hexToLuminosity(staticHexColour)
+      ) < 4.5
+    ) {
+      targetHexColour = pSBC(-0.01, targetHexColour);
+      percentageDarker++;
+    }
+
+    const newContrastRatio = contrastRatioBetweenTwoLuminosities(
+      hexToLuminosity(targetHexColour),
+      hexToLuminosity(staticHexColour)
+    );
+
+    document.getElementById("target__source").innerHTML = targetSource;
+    document.getElementById("target__hex").innerHTML = targetHexColour;
+    document.getElementById("target__percentage").innerHTML = percentageDarker;
+    document.getElementById(
+      "target__original"
+    ).innerHTML = targetHexColourOriginal.toLowerCase();
+    document.getElementById(
+      "target__new-ratio"
+    ).innerHTML = `${newContrastRatio}:1`;
+    document.getElementById("detail-group__target").classList.remove("hidden");
+  }
 };
 
 contrastChecker();
