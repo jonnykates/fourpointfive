@@ -48,7 +48,11 @@ const contrastRatioBetweenTwoLuminosities = (luminanceOne, luminanceTwo) => {
 };
 
 const contrastChecker = () => {
-  document.getElementById("detail-group__target").classList.add("hidden");
+  document.getElementById("result").classList.add("hidden");
+  document.getElementById("suggestion").classList.add("hidden");
+
+  document.getElementById("result-mark").innerHTML = "Pass";
+  document.getElementById("result-direction").innerHTML = "above";
 
   const foregroundHexColour = document.getElementById("foreground-input").value;
   const backgroundHexColour = document.getElementById("background-input").value;
@@ -69,9 +73,12 @@ const contrastChecker = () => {
     backgroundLuminosity
   );
 
-  document.getElementById("contrast-ratio").innerHTML = `${contrastRatio}:1`;
+  document.getElementById("ratio-original").innerHTML = contrastRatio;
 
   if (contrastRatio < 4.5) {
+    document.getElementById("result-mark").innerHTML = "Fail!";
+    document.getElementById("result-direction").innerHTML = "below";
+
     const targetSource =
       foregroundLuminosity < backgroundLuminosity ? "foreground" : "background";
 
@@ -96,7 +103,10 @@ const contrastChecker = () => {
       ) < 4.5
     ) {
       percentageDarker++;
-      targetHexColour = pSBC(((percentageDarker / 100) * -1), targetHexColourOriginal);
+      targetHexColour = pSBC(
+        (percentageDarker / 100) * -1,
+        targetHexColourOriginal
+      );
     }
 
     const newContrastRatio = contrastRatioBetweenTwoLuminosities(
@@ -104,16 +114,16 @@ const contrastChecker = () => {
       hexToLuminosity(staticHexColour)
     );
 
-    document.getElementById("target__source").innerHTML = targetSource;
-    document.getElementById("target__hex").innerHTML = targetHexColour;
-    document.getElementById("target__percentage").innerHTML = percentageDarker;
+    document.getElementById("suggested-hex-main").innerHTML = targetHexColour;
+    document.getElementById("suggested-hex").innerHTML = targetHexColour;
+    document.getElementById("suggested-source").innerHTML = targetSource;
     document.getElementById(
-      "target__original"
-    ).innerHTML = targetHexColourOriginal.toLowerCase();
-    document.getElementById(
-      "target__new-ratio"
-    ).innerHTML = `${newContrastRatio}:1`;
-    document.getElementById("detail-group__target").classList.remove("hidden");
+      "suggested-percentage"
+    ).innerHTML = percentageDarker;
+    document.getElementById("ratio-suggested").innerHTML = newContrastRatio;
+
+    document.getElementById("result").classList.remove("hidden");
+    document.getElementById("suggestion").classList.remove("hidden");
   }
 };
 
