@@ -47,12 +47,24 @@ const contrastRatioBetweenTwoLuminosities = (luminanceOne, luminanceTwo) => {
   return contrastRatio.toFixed(2);
 };
 
-const contrastChecker = () => {
-  document.getElementById("result").classList.add("hidden");
-  document.getElementById("suggestion").classList.add("hidden");
+const elRatioOriginal = document.getElementById("ratio-original");
+const elResult = document.getElementById("result");
+const elSuggestion = document.getElementById("suggestion");
+const elResultMark = document.getElementById("result-mark");
+const elResultDirection = document.getElementById("result-direction");
 
-  document.getElementById("result-mark").innerHTML = "Pass";
-  document.getElementById("result-direction").innerHTML = "above";
+const contrastChecker = () => {
+  elRatioOriginal.classList.remove("ratio--fail");
+  elRatioOriginal.classList.add("ratio--pass");
+
+  elResult.classList.add("hidden");
+  elSuggestion.classList.add("hidden");
+
+  elResultMark.innerHTML = "Pass";
+  elResultMark.classList.remove("result-mark--fail");
+  elResultMark.classList.add("result-mark--pass");
+
+  elResultDirection.innerHTML = "above";
 
   const foregroundHexColour = document.getElementById("foreground-input").value;
   const backgroundHexColour = document.getElementById("background-input").value;
@@ -65,6 +77,17 @@ const contrastChecker = () => {
     return;
   }
 
+  // Set some CSS variables based off our inputs
+  document.documentElement.style.setProperty(
+    "--foreground-colour",
+    foregroundHexColour
+  );
+
+  document.documentElement.style.setProperty(
+    "--background-colour",
+    backgroundHexColour
+  );
+
   const foregroundLuminosity = hexToLuminosity(foregroundHexColour);
   const backgroundLuminosity = hexToLuminosity(backgroundHexColour);
 
@@ -73,11 +96,17 @@ const contrastChecker = () => {
     backgroundLuminosity
   );
 
-  document.getElementById("ratio-original").innerHTML = contrastRatio;
+  elRatioOriginal.innerHTML = contrastRatio;
 
   if (contrastRatio < 4.5) {
-    document.getElementById("result-mark").innerHTML = "Fail!";
-    document.getElementById("result-direction").innerHTML = "below";
+    elRatioOriginal.classList.remove("ratio--pass");
+    elRatioOriginal.classList.add("ratio--fail");
+
+    elResultMark.innerHTML = "Fail!";
+    elResultMark.classList.remove("result-mark--pass");
+    elResultMark.classList.add("result-mark--fail");
+
+    elResultDirection.innerHTML = "below";
 
     const targetSource =
       foregroundLuminosity < backgroundLuminosity ? "foreground" : "background";
@@ -122,8 +151,19 @@ const contrastChecker = () => {
     ).innerHTML = percentageDarker;
     document.getElementById("ratio-suggested").innerHTML = newContrastRatio;
 
-    document.getElementById("result").classList.remove("hidden");
-    document.getElementById("suggestion").classList.remove("hidden");
+    // Set colours for suggestion section
+    document.documentElement.style.setProperty(
+      "--suggested-colour",
+      targetHexColour
+    );
+
+    document.documentElement.style.setProperty(
+      "--suggested-static",
+      staticHexColour
+    );
+
+    elResult.classList.remove("hidden");
+    elSuggestion.classList.remove("hidden");
   }
 };
 

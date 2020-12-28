@@ -4,105 +4,123 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Four Point Five</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/main.css";
   </head>
   <body>
-    <header>
-      <h1>Four Point Five</h1>
-      <span>A colour contrast tool</span>
+    <header class="site-header section section--dark">
+      <div class="container container--centred">
+        <h1 class="site-title">Four Point Five</h1>
+        <span class="site-subtitle">A colour contrast tool</span>
+      </div>
     </header>
 
     <main>
-      <section>
-        <form>
-          <fieldset>
-            <legend>Your colours</legend>
-            <div>
-              <label for="foreground-input">Foreground colour</label>
-              <input
-                type="text"
-                id="foreground-input"
-                name="foreground-input"
-                value="#1abc9c"
-                required
-                onblur="contrastChecker();"
-                maxlength="7"
-              />
-            </div>
-            <div>
-              <label for="background-input">Background colour</label>
-              <input
-                type="text"
-                id="background-input"
-                name="background-input"
-                value="#ffffff"
-                required
-                onblur="contrastChecker();"
-                maxlength="7"
-              />
-            </div>
-          </fieldset>
-        </form>
-        <span id="ratio-original"></span>
+      <section class="section--dark section--has-ratio">
+        <div class="container container--centred">
+          <form>
+            <fieldset>
+              <legend class="visually-hidden">Your colours</legend>
+              <div class="field-group">
+                <label for="foreground-input">Foreground colour</label>
+                <input
+                  type="text"
+                  id="foreground-input"
+                  name="foreground-input"
+                  value="#1abc9c"
+                  required
+                  onblur="contrastChecker();"
+                  maxlength="7"
+                />
+              </div>
+              <div class="field-group">
+                <label for="background-input">Background colour</label>
+                <input
+                  type="text"
+                  id="background-input"
+                  name="background-input"
+                  value="#ffffff"
+                  required
+                  onblur="contrastChecker();"
+                  maxlength="7"
+                />
+              </div>
+            </fieldset>
+          </form>
+          <span class="ratio" id="ratio-original"></span>
+        </div>
       </section>
 
       <section id="result">
-        <h2 id="result-mark">Pass</h2>
-        <p>
-          The contrast ratio between your selected colours is
-          <span id="result-direction">above</span> the WCAG's 4.5:1 requirements
-          for acceptable accessibility (AA compliance)
-        </p>
+        <div class="container container--centred">
+          <h2 id="result-mark">Pass</h2>
+          <p>
+            The contrast ratio between your selected colours is
+            <span id="result-direction">above</span> the WCAG's 4.5:1
+            requirements for acceptable accessibility (AA compliance)
+          </p>
+        </div>
       </section>
 
-      <section id="suggestion">
-        <h2>How about...</h2>
-        <span id="suggested-hex-main"></span>
-        <p>
-          If you darken your original <span id="suggested-source"></span> colour
-          by <span id="suggested-percentage"></span>%, you'd get
-          <span id="suggested-hex"></span> which has a passing contrast ratio
-          of...
-        </p>
-        <span id="ratio-suggested"></span>
+      <section id="suggestion" class="section--has-ratio">
+        <div class="container container--centred">
+          <h2 class="muted">How about...</h2>
+          <span id="suggested-hex-main"></span>
+          <p>
+            If you darken your original
+            <span id="suggested-source"></span> colour by
+            <span id="suggested-percentage"></span>%, you'd get
+            <span id="suggested-hex"></span> which has a passing contrast ratio
+            of...
+          </p>
+          <span class="ratio ratio--pass" id="ratio-suggested"></span>
+        </div>
       </section>
 
-      <section>
-        <h2>Examples</h2>
-        <p>
-          This is an example of your original colour, which fails to meet WCAG
-          AA criteria. You might think that this seems perfectly legible...
-        </p>
-        <p>
-          However web accessibility is about making sure as many people as
-          possible can use your product. The colour contrast of this paragraph
-          makes that so!
-        </p>
+      <section id="examples">
+        <div class="container">
+          <h2 class="visually-hidden">Examples</h2>
+          <p class="example--original">
+            This is an example of your original colour, which fails to meet WCAG
+            AA criteria. You might think that this seems perfectly legible...
+          </p>
+          <p class="example--suggested">
+            However web accessibility is about making sure as many people as
+            possible can use your product. The colour contrast of this paragraph
+            makes that so!
+          </p>
+        </div>
       </section>
     </main>
 
-    <footer>
-      <h2>Useful links</h2>
-      <ul>
-        <li>
-          <a href="https://webaim.org/articles/contrast/"
-            >WebAIM's straight-forward summary of contrast and colour
-            accessibility</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://css-tricks.com/understanding-web-accessibility-color-contrast-guidelines-and-ratios/"
-            >Stacie Arellano's brilliant explanation of the maths on
-            CSS-Tricks</a
-          >
-        </li>
-        <li>
-          <a href="https://twitter.com/jonnykates"
-            >Follow my on Twitter: @jonnykates</a
-          >
-        </li>
-      </ul>
+    <footer class="section section--dark">
+      <div class="container">
+        <h2 class="muted">Useful links</h2>
+        <ul>
+          <li>
+            <a href="https://webaim.org/articles/contrast/"
+              >WebAIM's straight-forward summary of contrast and colour
+              accessibility</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://css-tricks.com/understanding-web-accessibility-color-contrast-guidelines-and-ratios/"
+              >Stacie Arellano's brilliant explanation of the maths on
+              CSS-Tricks</a
+            >
+          </li>
+          <li>
+            <a href="https://twitter.com/jonnykates"
+              >Follow my on Twitter: @jonnykates</a
+            >
+          </li>
+        </ul>
+      </div>
     </footer>
 
     <script src="./pSBC.js"></script>
