@@ -95,8 +95,8 @@ const contrastChecker = () => {
         hexToLuminosity(staticHexColour)
       ) < 4.5
     ) {
-      targetHexColour = pSBC(-0.01, targetHexColour);
       percentageDarker++;
+      targetHexColour = pSBC(((percentageDarker / 100) * -1), targetHexColourOriginal);
     }
 
     const newContrastRatio = contrastRatioBetweenTwoLuminosities(
