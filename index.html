@@ -20,7 +20,10 @@
     </header>
 
     <main>
-      <section class="section--dark section--has-ratio">
+      <section
+        id="inputs"
+        class="section--dark section--has-bottom-curve"
+      >
         <div class="container container--centred">
           <form>
             <fieldset>
@@ -66,7 +69,10 @@
         </div>
       </section>
 
-      <section id="suggestion" class="section--has-ratio">
+      <section
+        id="suggestion"
+        class="section--has-top-curve section--has-bottom-curve"
+      >
         <div class="container container--centred">
           <h2 class="muted">How about...</h2>
           <span id="suggested-hex-main"></span>
@@ -77,6 +83,23 @@
             <span id="suggested-hex"></span> which has a passing contrast ratio
             of...
           </p>
+          <svg
+            class="suggestion-bottom-curve"
+            preserveAspectRatio="none slice"
+            width="394"
+            height="53"
+            viewBox="0 0 394 53"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M0 0L16.4167 3.94C32.8333 7.88 65.6667 15.76 98.5 25.61C131.333 35.46 164.167 47.28 197 49.25C229.833 51.22 262.667 43.34 295.5 35.46C328.333 27.58 361.167 19.7 377.583 15.76L394 11.82V52.2H377.583C361.167 52.2 328.333 52.2 295.5 52.2C262.667 52.2 229.833 52.2 197 52.2C164.167 52.2 131.333 52.2 98.5 52.2C65.6667 52.2 32.8333 52.2 16.4167 52.2H0V0Z"
+              fill="var(--suggested-static)"
+            />
+          </svg>
+
           <span class="ratio ratio--pass" id="ratio-suggested"></span>
         </div>
       </section>
@@ -85,7 +108,7 @@
         <div class="container">
           <h2 class="visually-hidden">Examples</h2>
           <p class="example--original">
-            This is an example of your original colour, which fails to meet WCAG
+            This is an example of your original colours, which fail to meet WCAG
             AA criteria. You might think that this seems perfectly legible...
           </p>
           <p class="example--suggested">
@@ -97,8 +120,24 @@
       </section>
     </main>
 
-    <footer class="section section--dark">
+    <footer class="site-footer section section--dark">
       <div class="container">
+        <svg
+          class="footer-top-curve"
+          preserveAspectRatio="none slice"
+          width="394"
+          height="59"
+          viewBox="0 0 394 59"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M394 0H0V38.5566L2.69709e-05 20.489L16 16.1168C16.4461 16.0021 16.9031 15.8843 17.3709 15.7638L17.501 15.7303C34.8913 11.2504 66.9176 3 98 3C131 3.00001 164 11.7445 197 22.6752C206.25 25.4327 215.5 28.4478 224.728 31.4558L224.73 31.4566C248.423 39.1796 271.971 46.8552 295 50.0019C327.528 54.3116 360.056 50.1251 377.261 47.9109L378 47.8157L394 45.6296L394 0Z"
+            fill="var(--suggested-static)"
+          />
+        </svg>
         <h2 class="muted">Useful links</h2>
         <ul>
           <li>

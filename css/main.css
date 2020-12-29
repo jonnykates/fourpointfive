@@ -27,7 +27,22 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  position: relative;
   padding: 1em;
+}
+
+body:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1em solid var(--foreground-colour);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
 }
 
 main {
@@ -119,6 +134,7 @@ legend {
 
 .section.site-header {
   padding-bottom: 0;
+  padding-top: 2.5em;
 }
 
 .site-title {
@@ -132,16 +148,9 @@ legend {
 /* Sections */
 section,
 .section {
-  padding: 2em 1.25em;
+  padding-left: 1.25em;
+  padding-right: 1.25em;
   position: relative;
-}
-
-.section--has-ratio {
-  padding-bottom: calc(2em + 40px);
-}
-
-.section--has-ratio + section {
-  padding-top: calc(2em + 40px);
 }
 
 .section--dark {
@@ -151,6 +160,20 @@ section,
 
 .section--dark a {
   color: inherit;
+}
+
+.section--has-top-curve:before,
+.section--has-bottom-curve:after {
+  content: "";
+  width: 100%;
+  height: 2em;
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Container */
@@ -174,6 +197,26 @@ section,
   font-size: 0;
 }
 
+/* Inputs section */
+#inputs {
+  padding-top: 2em;
+  padding-bottom: 4em;
+}
+
+#inputs:after {
+  content: "";
+  width: 100%;
+  height: 2em;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  background-image: url("../img/curve-1.svg");
+}
+
 /* Ratio */
 
 .ratio {
@@ -185,14 +228,15 @@ section,
   transform: translateY(50%);
   border-width: 3px;
   border-style: solid;
-  width: 80px;
-  height: 80px;
+  width: 3.25em;
+  height: 3.25em;
   border-radius: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5em;
+  font-size: 1.75em;
   font-weight: bold;
+  z-index: 2;
 }
 
 .ratio--fail {
@@ -205,6 +249,12 @@ section,
   background-color: #d4edda;
   border-color: #c3e6cb;
   color: #155724;
+}
+
+/* Result */
+
+#result {
+  padding-top: 4em;
 }
 
 /* Result mark */
@@ -226,6 +276,22 @@ section,
 #suggestion {
   background-color: var(--suggested-colour);
   color: var(--suggested-static);
+  padding-top: 4em;
+  padding-bottom: 3em;
+}
+
+#suggestion:before {
+  top: 0;
+  background-image: url("../img/curve-2.svg");
+}
+
+.suggestion-bottom-curve {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2em;
 }
 
 #suggested-hex-main {
@@ -234,6 +300,12 @@ section,
 }
 
 /* Examples */
+
+#examples {
+  background-color: var(--suggested-static);
+  padding-top: 5em;
+  padding-bottom: 2.5em;
+}
 
 #examples p {
   max-width: 80%;
@@ -247,4 +319,28 @@ section,
   color: var(--suggested-colour);
   align-self: flex-end;
   text-align: right;
+}
+
+/* Footer */
+
+.site-footer {
+  padding-top: 3em;
+  padding-bottom: 2em;
+}
+
+.footer-top-curve {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2em;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
 }
