@@ -254,13 +254,14 @@ section,
 /* Result */
 
 #result {
-  padding-top: 4em;
+  padding-top: 4.5em;
+  padding-bottom: 2.5em;
 }
 
 /* Result mark */
 
 #result-mark {
-  font-size: 2em;
+  font-size: 2.5em;
 }
 
 .result-mark--fail {
@@ -276,8 +277,8 @@ section,
 #suggestion {
   background-color: var(--suggested-colour);
   color: var(--suggested-static);
-  padding-top: 4em;
-  padding-bottom: 3em;
+  padding-top: 4.5em;
+  padding-bottom: 3.5em;
 }
 
 #suggestion:before {
@@ -295,7 +296,7 @@ section,
 }
 
 #suggested-hex-main {
-  font-size: 2em;
+  font-size: 2.5em;
   font-weight: bold;
 }
 

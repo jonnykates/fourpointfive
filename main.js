@@ -48,8 +48,8 @@ const contrastRatioBetweenTwoLuminosities = (luminanceOne, luminanceTwo) => {
 };
 
 const elRatioOriginal = document.getElementById("ratio-original");
-const elResult = document.getElementById("result");
 const elSuggestion = document.getElementById("suggestion");
+const elExamples = document.getElementById("examples");
 const elResultMark = document.getElementById("result-mark");
 const elResultDirection = document.getElementById("result-direction");
 
@@ -57,8 +57,8 @@ const contrastChecker = () => {
   elRatioOriginal.classList.remove("ratio--fail");
   elRatioOriginal.classList.add("ratio--pass");
 
-  elResult.classList.add("hidden");
   elSuggestion.classList.add("hidden");
+  elExamples.classList.add("hidden");
 
   elResultMark.innerHTML = "Pass";
   elResultMark.classList.remove("result-mark--fail");
@@ -73,7 +73,7 @@ const contrastChecker = () => {
     !validHexColour(foregroundHexColour) ||
     !validHexColour(backgroundHexColour)
   ) {
-    console.log("Please enter a valid colour!");
+    window.alert("Please enter a valid hex colour!");
     return;
   }
 
@@ -162,8 +162,8 @@ const contrastChecker = () => {
       staticHexColour
     );
 
-    elResult.classList.remove("hidden");
     elSuggestion.classList.remove("hidden");
+    elExamples.classList.remove("hidden");
   }
 };
 
