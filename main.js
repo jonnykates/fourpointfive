@@ -47,6 +47,7 @@ const contrastRatioBetweenTwoLuminosities = (luminanceOne, luminanceTwo) => {
   return contrastRatio.toFixed(2);
 };
 
+const elFavicon = document.querySelector("link[rel~='icon']");
 const elRatioOriginal = document.getElementById("ratio-original");
 const elSuggestion = document.getElementById("suggestion");
 const elExamples = document.getElementById("examples");
@@ -54,6 +55,8 @@ const elResultMark = document.getElementById("result-mark");
 const elResultDirection = document.getElementById("result-direction");
 
 const contrastChecker = () => {
+  elFavicon.href = "./img/favicon--pass.png";
+
   elRatioOriginal.classList.remove("ratio--fail");
   elRatioOriginal.classList.add("ratio--pass");
 
@@ -99,6 +102,7 @@ const contrastChecker = () => {
   elRatioOriginal.innerHTML = contrastRatio;
 
   if (contrastRatio < 4.5) {
+    elFavicon.href = "./img/favicon--fail.png";
     elRatioOriginal.classList.remove("ratio--pass");
     elRatioOriginal.classList.add("ratio--fail");
 
