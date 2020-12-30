@@ -6,6 +6,7 @@
   --background-colour: #fff;
   --suggested-colour: transparent;
   --suggested-static: transparent;
+  --container-width: 400px;
 }
 
 html {
@@ -28,21 +29,7 @@ body {
   margin: 0;
   min-height: 100vh;
   position: relative;
-  padding: 1em;
-}
-
-body:after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 1em solid var(--foreground-colour);
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  pointer-events: none;
+  overflow-x: hidden;
 }
 
 main {
@@ -134,11 +121,11 @@ legend {
 
 .section.site-header {
   padding-bottom: 0;
-  padding-top: 2.5em;
+  padding-top: 1.25em;
 }
 
 .site-title {
-  margin: 0;
+  margin: 1.25em 0 0;
 }
 
 .site-subtitle {
@@ -170,6 +157,16 @@ legend {
 .github-link svg {
   transform: translateX(2.5em);
   width: 2em;
+}
+
+.about-link {
+  position: absolute;
+  font-size: 0.85em;
+}
+
+.toggle-about-exposed:hover {
+  cursor: pointer;
+  opacity: 1;
 }
 
 /* Sections */
@@ -207,13 +204,43 @@ section,
 .container {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  max-width: var(--container-width);
   margin: 0 auto;
 }
 
 .container--centred {
   align-items: center;
   text-align: center;
+}
+
+.viewporter {
+  display: flex;
+  position: relative;
+  transition: transform 0.75s cubic-bezier(.16,.88,.55,1.01);
+}
+
+.viewporter--exposed {
+  transform: translateX(var(--container-width));
+}
+
+.viewporter__content {
+  padding: 1em;
+  position: relative;
+  width: 100%;
+}
+
+.viewporter__content:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1em solid var(--foreground-colour);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
 }
 
 .hidden {
@@ -363,6 +390,41 @@ section,
   right: 0;
   width: 100%;
   height: 2em;
+}
+
+/* About */
+#about {
+  font-size: 0.85em;
+  background-color: var(--dark);
+  color: #fff;
+  padding-top: 2.25em;
+  padding-bottom: 2.25em;
+  width: 100%;
+  max-width: var(--container-width);
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 4;
+  transform: translateX(-100%);
+}
+
+#about a {
+  color: inherit;
+}
+
+.about__header {
+  display: flex;
+  align-items: center;
+}
+
+.about__header h2 {
+  flex-grow: 1;
+}
+
+.about__sticky {
+  position: sticky;
+  top: 2.25em;
 }
 
 /* Responsive */

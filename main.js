@@ -53,6 +53,16 @@ const elSuggestion = document.getElementById("suggestion");
 const elExamples = document.getElementById("examples");
 const elResultMark = document.getElementById("result-mark");
 const elResultDirection = document.getElementById("result-direction");
+const elViewporter = document.getElementById("viewporter");
+const elToggleLink = document.querySelectorAll(".toggle-about-exposed");
+
+const toggleAboutExposed = () => {
+  elViewporter.classList.toggle("viewporter--exposed");
+};
+
+for (var i = 0; i < elToggleLink.length; i++) {
+  elToggleLink[i].addEventListener("click", toggleAboutExposed);
+}
 
 const contrastChecker = () => {
   elFavicon.href = "./img/favicon--pass.png";
