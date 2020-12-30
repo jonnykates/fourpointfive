@@ -74,6 +74,10 @@ strong {
   opacity: 0.85;
 }
 
+.small {
+  font-size: 0.75em;
+}
+
 /* Form */
 
 form {
@@ -422,15 +426,20 @@ section,
   flex-grow: 1;
 }
 
-.about__sticky {
-  position: sticky;
-  top: 2.25em;
-}
-
 /* Responsive */
 
 @media (max-width: 768px) {
   html {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 530px) {
+  #about {
+    max-width: 100%;
+  }
+
+  .viewporter--exposed {
+    transform: translateX(100%);
   }
 }

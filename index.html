@@ -20,16 +20,15 @@
   <body>
     <div id="viewporter" class="viewporter">
       <section id="about">
-        <div class="about__sticky">
-          <div class="about__header">
-            <h2>About</h2>
-            <a class="toggle-about-exposed muted">Close</a>
-          </div>
-          <p>Four Point Five is a tool to help developers make their websites and applications more accessible. It calculates the contrast ratio between two colours and tells you whether you meet the WCAG's AA criteria of a 4.5:1 contrast ratio.</p>
-          <p>Unlike many other similar tools, Four Point Five will then automatically calculate the nearest passing colour to use should you fail to meet the 4.5:1 benchmark.</p>
-          <p>This tool was built by me, <a href="https://www.twitter.com/jonnykates">Jonny Kates</a>. I don't profess to be an expert in web accessibility but I believe it is of critical importance and often overlooked. I wanted a tool that would suggest the "nearest" passing colour but couldn't find one - so I built this.</p>
-          <p>You can view, contribute to or star the project on <a href="https://github.com/jonnykates/fourpointfive">Github</a>. It's a basic static site: one HTML file, one CSS file, one JS file. No build tools, no nonsense. It comes in at about 43kb and is hosted on Netlify.</p>
+        <div class="about__header">
+          <h2>About</h2>
+          <a class="toggle-about-exposed muted">Close</a>
         </div>
+        <p>Four Point Five is a tool to help developers make their websites and applications more accessible. It calculates the contrast ratio between two colours and tells you whether you meet the <a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html">WCAG's AA criteria of a 4.5:1 contrast ratio</a>.</p>
+        <p>Unlike many other similar tools, Four Point Five will then automatically calculate the nearest passing colour to use should you fail to meet the 4.5:1 benchmark.</p>
+        <p>This tool was built by me, <a href="https://www.twitter.com/jonnykates">Jonny Kates</a>. I don't profess to be an expert in web accessibility but I believe it is of critical importance and often overlooked. I wanted a tool that would suggest the "nearest" passing colour but couldn't find one - so I built this.</p>
+        <p>You can view, contribute to or star the project on <a href="https://github.com/jonnykates/fourpointfive">Github</a>. It's a basic static site: one HTML file, one CSS file, one JS file. No build tools, no dependencies*, no nonsense. It comes in at about 43kb and is hosted on Netlify.</p>
+        <p class="small">* I'm using <a href="https://github.com/PimpTrizkit/PJs/wiki/12.-Shade,-Blend-and-Convert-a-Web-Color-(pSBC.js)">pSBC.js by PimpTrikit</a> to tint the shade of a failing colour towards a passing one.</p>
       </section>
       <div class="viewporter__content">
         <header class="site-header section section--dark">
