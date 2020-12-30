@@ -1,3 +1,5 @@
+document.querySelector("body").classList.add("js");
+
 const validHexColour = (colour) => {
   const colourRegex = /^#[0-9A-F]{6}$/i;
 

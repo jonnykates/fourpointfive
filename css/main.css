@@ -204,6 +204,28 @@ section,
   z-index: 1;
 }
 
+/* Alert */
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8d7da;
+  border-bottom: 1px solid #f5c6cb;
+  color: #721c24;
+  padding: 1em;
+  font-size: 0.85em;
+}
+
+@supports (display: block) {
+  #alert-ie {
+    display: none;
+  }
+}
+
+body.js #alert-js {
+  display: none;
+}
+
 /* Container */
 .container {
   display: flex;
