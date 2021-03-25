@@ -18,7 +18,7 @@ const hexToLuminosity = (hex) => {
   rgb = {
     r: parseInt(rgb[1], 16),
     g: parseInt(rgb[2], 16),
-    b: parseInt(rgb[3], 16),
+    b: parseInt(rgb[3], 16)
   };
 
   for (colour in rgb) {
@@ -84,32 +84,20 @@ const contrastChecker = () => {
   const foregroundHexColour = document.getElementById("foreground-input").value;
   const backgroundHexColour = document.getElementById("background-input").value;
 
-  if (
-    !validHexColour(foregroundHexColour) ||
-    !validHexColour(backgroundHexColour)
-  ) {
+  if (!validHexColour(foregroundHexColour) || !validHexColour(backgroundHexColour)) {
     window.alert("Please enter a valid hex colour!");
     return;
   }
 
   // Set some CSS variables based off our inputs
-  document.documentElement.style.setProperty(
-    "--foreground-colour",
-    foregroundHexColour
-  );
+  document.documentElement.style.setProperty("--foreground-colour", foregroundHexColour);
 
-  document.documentElement.style.setProperty(
-    "--background-colour",
-    backgroundHexColour
-  );
+  document.documentElement.style.setProperty("--background-colour", backgroundHexColour);
 
   const foregroundLuminosity = hexToLuminosity(foregroundHexColour);
   const backgroundLuminosity = hexToLuminosity(backgroundHexColour);
 
-  const contrastRatio = contrastRatioBetweenTwoLuminosities(
-    foregroundLuminosity,
-    backgroundLuminosity
-  );
+  const contrastRatio = contrastRatioBetweenTwoLuminosities(foregroundLuminosity, backgroundLuminosity);
 
   elRatioOriginal.innerHTML = contrastRatio;
 
@@ -124,34 +112,21 @@ const contrastChecker = () => {
 
     elResultDirection.innerHTML = "below";
 
-    const targetSource =
-      foregroundLuminosity < backgroundLuminosity ? "foreground" : "background";
+    const targetSource = foregroundLuminosity < backgroundLuminosity ? "foreground" : "background";
 
-    let targetHexColour =
-      foregroundLuminosity < backgroundLuminosity
-        ? foregroundHexColour
-        : backgroundHexColour;
+    let targetHexColour = foregroundLuminosity < backgroundLuminosity ? foregroundHexColour : backgroundHexColour;
 
     const targetHexColourOriginal = targetHexColour;
 
-    const staticHexColour =
-      targetHexColour == foregroundHexColour
-        ? backgroundHexColour
-        : foregroundHexColour;
+    const staticHexColour = targetHexColour == foregroundHexColour ? backgroundHexColour : foregroundHexColour;
 
     let percentageDarker = 0;
 
     while (
-      contrastRatioBetweenTwoLuminosities(
-        hexToLuminosity(targetHexColour),
-        hexToLuminosity(staticHexColour)
-      ) < 4.5
+      contrastRatioBetweenTwoLuminosities(hexToLuminosity(targetHexColour), hexToLuminosity(staticHexColour)) < 4.5
     ) {
       percentageDarker++;
-      targetHexColour = pSBC(
-        (percentageDarker / 100) * -1,
-        targetHexColourOriginal
-      );
+      targetHexColour = pSBC((percentageDarker / 100) * -1, targetHexColourOriginal);
     }
 
     const newContrastRatio = contrastRatioBetweenTwoLuminosities(
@@ -162,21 +137,13 @@ const contrastChecker = () => {
     document.getElementById("suggested-hex-main").innerHTML = targetHexColour;
     document.getElementById("suggested-hex").innerHTML = targetHexColour;
     document.getElementById("suggested-source").innerHTML = targetSource;
-    document.getElementById(
-      "suggested-percentage"
-    ).innerHTML = percentageDarker;
+    document.getElementById("suggested-percentage").innerHTML = percentageDarker;
     document.getElementById("ratio-suggested").innerHTML = newContrastRatio;
 
     // Set colours for suggestion section
-    document.documentElement.style.setProperty(
-      "--suggested-colour",
-      targetHexColour
-    );
+    document.documentElement.style.setProperty("--suggested-colour", targetHexColour);
 
-    document.documentElement.style.setProperty(
-      "--suggested-static",
-      staticHexColour
-    );
+    document.documentElement.style.setProperty("--suggested-static", staticHexColour);
 
     elSuggestion.classList.remove("hidden");
     elExamples.classList.remove("hidden");
