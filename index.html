@@ -4,21 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Four Point Five - A colour contrast tool</title>
-    <meta name="description" content="Four Point Five is an accessibility tool for developers which calculates the contrast ratio between two colours and suggests a new colour to meet WCAG criteria">
-    <meta name="keywords" content="accessibility, colour contrast, WCAG">
-    <meta name="author" content="Jonny Kates">
+    <meta
+      name="description"
+      content="Four Point Five is an accessibility tool for developers which calculates the contrast ratio between two colours and suggests a new colour to meet WCAG criteria"
+    />
+    <meta name="keywords" content="accessibility, colour contrast, WCAG" />
+    <meta name="author" content="Jonny Kates" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="icon"
-      type="image/png"
-      href="./img/favicon--plain.png" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="icon" type="image/png" href="./img/favicon--plain.png" />
   </head>
   <body>
-    <div id="alert-ie" class="alert">This site uses some features that might not be supported by your browser. Please consider using a more modern browser.</div>
+    <div id="alert-ie" class="alert">
+      This site uses some features that might not be supported by your browser. Please consider using a more modern
+      browser.
+    </div>
 
     <div id="alert-js" class="alert">This site requires Javascript to work properly, sorry.</div>
 
@@ -28,11 +32,39 @@
           <h2>About</h2>
           <a class="toggle-about-exposed muted">Close</a>
         </div>
-        <p>Four Point Five is a tool to help developers make their websites and applications more accessible. It calculates the contrast ratio between two colours and tells you whether you meet the <a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html">WCAG's AA criteria of a 4.5:1 contrast ratio</a>.</p>
-        <p>Unlike many other similar tools, Four Point Five will then automatically calculate the nearest passing colour to use should you fail to meet the 4.5:1 benchmark.</p>
-        <p>This tool was built by me, <a href="https://www.twitter.com/jonnykates">Jonny Kates</a>. I don't profess to be an expert in web accessibility but I believe it is of critical importance and often overlooked. I wanted a tool that would suggest the "nearest" passing colour but couldn't find one - so I built this.</p>
-        <p>You can view, contribute to or star the project on <a href="https://github.com/jonnykates/fourpointfive">Github</a>. It's a basic static site: one HTML file, one CSS file, one JS file. No build tools, no dependencies*, no nonsense. It comes in at about 43kb and is hosted on Netlify.</p>
-        <p class="small">* I'm using <a href="https://github.com/PimpTrizkit/PJs/wiki/12.-Shade,-Blend-and-Convert-a-Web-Color-(pSBC.js)">pSBC.js by PimpTrikit</a> to tint the shade of a failing colour towards a passing one.</p>
+        <p>
+          Four Point Five is a tool to help developers make their websites and applications more accessible. It
+          calculates the contrast ratio between two colours and tells you whether you meet the
+          <a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html"
+            >WCAG's AA criteria of a 4.5:1 contrast ratio</a
+          >.
+        </p>
+        <p>
+          Unlike many other similar tools, Four Point Five will then automatically calculate the nearest passing colour
+          to use should you fail to meet the 4.5:1 benchmark.
+        </p>
+        <p>
+          This tool was built by me, <a href="https://www.twitter.com/jonnykates">Jonny Kates</a>. I don't profess to be
+          an expert in web accessibility but I believe it is of critical importance and often overlooked. I wanted a
+          tool that would suggest the "nearest" passing colour but couldn't find one - so I built this.
+        </p>
+        <p>
+          You can view, contribute to or star the project on
+          <a href="https://github.com/jonnykates/fourpointfive">Github</a>. It's a basic static site: one HTML file, one
+          CSS file, one JS file. No build tools, no dependencies*, no nonsense. It comes in at about 43kb and is hosted
+          on Netlify.
+        </p>
+        <p>
+          If you found this useful and would like to make me smile, you can
+          <a href="https://www.buymeacoffee.com/jonnykates">buy me a coffee</a>.
+        </p>
+        <p class="small">
+          * I'm using
+          <a href="https://github.com/PimpTrizkit/PJs/wiki/12.-Shade,-Blend-and-Convert-a-Web-Color-(pSBC.js)"
+            >pSBC.js by PimpTrikit</a
+          >
+          to tint the shade of a failing colour towards a passing one.
+        </p>
       </section>
       <div class="viewporter__content">
         <header class="site-header section section--dark">
@@ -44,16 +76,16 @@
           <a class="github-link" href="https://github.com/jonnykates/fourpointfive">
             <span>View on Github</span>
             <svg width="50" height="52" viewBox="0 0 50 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.7238 40.0605C16.7238 40.2621 16.4919 40.4234 16.1996 40.4234C15.8669 40.4536 15.6351 40.2923 15.6351 40.0605C15.6351 39.8589 15.8669 39.6976 16.1593 39.6976C16.4617 39.6673 16.7238 39.8286 16.7238 40.0605ZM13.5887 39.6069C13.5181 39.8085 13.7198 40.0403 14.0222 40.1008C14.2843 40.2016 14.5867 40.1008 14.6472 39.8992C14.7077 39.6976 14.5161 39.4657 14.2137 39.375C13.9516 39.3044 13.6593 39.4052 13.5887 39.6069ZM18.0444 39.4355C17.752 39.5061 17.5504 39.6976 17.5806 39.9294C17.6109 40.1311 17.873 40.2621 18.1754 40.1915C18.4677 40.121 18.6694 39.9294 18.6391 39.7278C18.6089 39.5363 18.3367 39.4052 18.0444 39.4355ZM24.6774 0.806458C10.6956 0.806458 0 11.4214 0 25.4032C0 36.5827 7.03629 46.1492 17.0867 49.5161C18.377 49.748 18.8306 48.9516 18.8306 48.2964C18.8306 47.6714 18.8004 44.2238 18.8004 42.1069C18.8004 42.1069 11.744 43.619 10.2621 39.1028C10.2621 39.1028 9.1129 36.1694 7.45968 35.4133C7.45968 35.4133 5.15121 33.8307 7.62097 33.8609C7.62097 33.8609 10.131 34.0625 11.5121 36.4617C13.7198 40.3528 17.4194 39.2339 18.8609 38.5686C19.0927 36.9557 19.748 35.8367 20.4738 35.1714C14.8387 34.5464 9.15323 33.7298 9.15323 24.0323C9.15323 21.2601 9.91936 19.869 11.5323 18.0948C11.2702 17.4395 10.4133 14.7379 11.7944 11.25C13.9012 10.5948 18.75 13.9718 18.75 13.9718C20.7661 13.4073 22.9335 13.1149 25.0806 13.1149C27.2278 13.1149 29.3952 13.4073 31.4113 13.9718C31.4113 13.9718 36.2601 10.5847 38.3669 11.25C39.748 14.748 38.8911 17.4395 38.629 18.0948C40.2419 19.879 41.2298 21.2702 41.2298 24.0323C41.2298 33.7601 35.2923 34.5363 29.6573 35.1714C30.5847 35.9677 31.371 37.4798 31.371 39.8488C31.371 43.246 31.3407 47.4496 31.3407 48.2762C31.3407 48.9315 31.8044 49.7278 33.0847 49.496C43.1653 46.1492 50 36.5827 50 25.4032C50 11.4214 38.6593 0.806458 24.6774 0.806458ZM9.79839 35.5746C9.66734 35.6754 9.69758 35.9073 9.86895 36.0988C10.0302 36.2601 10.2621 36.3307 10.3931 36.1996C10.5242 36.0988 10.494 35.8669 10.3226 35.6754C10.1613 35.5141 9.92944 35.4436 9.79839 35.5746ZM8.70968 34.7581C8.63911 34.8891 8.73992 35.0504 8.94153 35.1512C9.10282 35.252 9.30444 35.2218 9.375 35.0807C9.44556 34.9496 9.34476 34.7883 9.14314 34.6875C8.94153 34.627 8.78024 34.6573 8.70968 34.7581ZM11.9758 38.3468C11.8145 38.4778 11.875 38.7802 12.1069 38.9718C12.3387 39.2036 12.631 39.2339 12.7621 39.0726C12.8931 38.9415 12.8327 38.6391 12.631 38.4476C12.4093 38.2157 12.1069 38.1855 11.9758 38.3468ZM10.8266 36.8649C10.6653 36.9657 10.6653 37.2278 10.8266 37.4597C10.9879 37.6915 11.2601 37.7923 11.3911 37.6915C11.5524 37.5605 11.5524 37.2984 11.3911 37.0665C11.25 36.8347 10.9879 36.7339 10.8266 36.8649Z" fill="black"/>
-              </svg>
-              </a>
+              <path
+                d="M16.7238 40.0605C16.7238 40.2621 16.4919 40.4234 16.1996 40.4234C15.8669 40.4536 15.6351 40.2923 15.6351 40.0605C15.6351 39.8589 15.8669 39.6976 16.1593 39.6976C16.4617 39.6673 16.7238 39.8286 16.7238 40.0605ZM13.5887 39.6069C13.5181 39.8085 13.7198 40.0403 14.0222 40.1008C14.2843 40.2016 14.5867 40.1008 14.6472 39.8992C14.7077 39.6976 14.5161 39.4657 14.2137 39.375C13.9516 39.3044 13.6593 39.4052 13.5887 39.6069ZM18.0444 39.4355C17.752 39.5061 17.5504 39.6976 17.5806 39.9294C17.6109 40.1311 17.873 40.2621 18.1754 40.1915C18.4677 40.121 18.6694 39.9294 18.6391 39.7278C18.6089 39.5363 18.3367 39.4052 18.0444 39.4355ZM24.6774 0.806458C10.6956 0.806458 0 11.4214 0 25.4032C0 36.5827 7.03629 46.1492 17.0867 49.5161C18.377 49.748 18.8306 48.9516 18.8306 48.2964C18.8306 47.6714 18.8004 44.2238 18.8004 42.1069C18.8004 42.1069 11.744 43.619 10.2621 39.1028C10.2621 39.1028 9.1129 36.1694 7.45968 35.4133C7.45968 35.4133 5.15121 33.8307 7.62097 33.8609C7.62097 33.8609 10.131 34.0625 11.5121 36.4617C13.7198 40.3528 17.4194 39.2339 18.8609 38.5686C19.0927 36.9557 19.748 35.8367 20.4738 35.1714C14.8387 34.5464 9.15323 33.7298 9.15323 24.0323C9.15323 21.2601 9.91936 19.869 11.5323 18.0948C11.2702 17.4395 10.4133 14.7379 11.7944 11.25C13.9012 10.5948 18.75 13.9718 18.75 13.9718C20.7661 13.4073 22.9335 13.1149 25.0806 13.1149C27.2278 13.1149 29.3952 13.4073 31.4113 13.9718C31.4113 13.9718 36.2601 10.5847 38.3669 11.25C39.748 14.748 38.8911 17.4395 38.629 18.0948C40.2419 19.879 41.2298 21.2702 41.2298 24.0323C41.2298 33.7601 35.2923 34.5363 29.6573 35.1714C30.5847 35.9677 31.371 37.4798 31.371 39.8488C31.371 43.246 31.3407 47.4496 31.3407 48.2762C31.3407 48.9315 31.8044 49.7278 33.0847 49.496C43.1653 46.1492 50 36.5827 50 25.4032C50 11.4214 38.6593 0.806458 24.6774 0.806458ZM9.79839 35.5746C9.66734 35.6754 9.69758 35.9073 9.86895 36.0988C10.0302 36.2601 10.2621 36.3307 10.3931 36.1996C10.5242 36.0988 10.494 35.8669 10.3226 35.6754C10.1613 35.5141 9.92944 35.4436 9.79839 35.5746ZM8.70968 34.7581C8.63911 34.8891 8.73992 35.0504 8.94153 35.1512C9.10282 35.252 9.30444 35.2218 9.375 35.0807C9.44556 34.9496 9.34476 34.7883 9.14314 34.6875C8.94153 34.627 8.78024 34.6573 8.70968 34.7581ZM11.9758 38.3468C11.8145 38.4778 11.875 38.7802 12.1069 38.9718C12.3387 39.2036 12.631 39.2339 12.7621 39.0726C12.8931 38.9415 12.8327 38.6391 12.631 38.4476C12.4093 38.2157 12.1069 38.1855 11.9758 38.3468ZM10.8266 36.8649C10.6653 36.9657 10.6653 37.2278 10.8266 37.4597C10.9879 37.6915 11.2601 37.7923 11.3911 37.6915C11.5524 37.5605 11.5524 37.2984 11.3911 37.0665C11.25 36.8347 10.9879 36.7339 10.8266 36.8649Z"
+                fill="black"
+              />
+            </svg>
+          </a>
         </header>
 
         <main>
-          <section
-            id="inputs"
-            class="section--dark section--has-bottom-curve"
-          >
+          <section id="inputs" class="section--dark section--has-bottom-curve">
             <div class="container container--centred">
               <form>
                 <fieldset>
@@ -93,25 +125,20 @@
               <h2 id="result-mark">Pass</h2>
               <p>
                 The contrast ratio between your selected colours is
-                <span id="result-direction">above</span> the WCAG's 4.5:1
-                requirements for acceptable accessibility (AA compliance)
+                <span id="result-direction">above</span> the WCAG's 4.5:1 requirements for acceptable accessibility (AA
+                compliance)
               </p>
             </div>
           </section>
 
-          <section
-            id="suggestion"
-            class="section--has-top-curve section--has-bottom-curve"
-          >
+          <section id="suggestion" class="section--has-top-curve section--has-bottom-curve">
             <div class="container container--centred">
               <h2 class="muted">How about...</h2>
               <span id="suggested-hex-main"></span>
               <p>
                 If you darken your original
-                <span id="suggested-source"></span> colour by
-                <span id="suggested-percentage"></span>%, you'd get
-                <span id="suggested-hex"></span> which has a passing contrast ratio
-                of...
+                <span id="suggested-source"></span> colour by <span id="suggested-percentage"></span>%, you'd get
+                <span id="suggested-hex"></span> which has a passing contrast ratio of...
               </p>
               <svg
                 class="suggestion-bottom-curve"
@@ -138,13 +165,12 @@
             <div class="container">
               <h2 class="visually-hidden">Examples</h2>
               <p class="example--original">
-                This is an example of your original colours, which fail to meet WCAG
-                AA criteria. You might think that this seems perfectly legible...
+                This is an example of your original colours, which fail to meet WCAG AA criteria. You might think that
+                this seems perfectly legible...
               </p>
               <p class="example--suggested">
-                However web accessibility is about making sure as many people as
-                possible can use your product. The colour contrast of this paragraph
-                makes that so!
+                However web accessibility is about making sure as many people as possible can use your product. The
+                colour contrast of this paragraph makes that so!
               </p>
             </div>
           </section>
@@ -172,26 +198,23 @@
             <ul>
               <li>
                 <a href="https://webaim.org/articles/contrast/"
-                  >WebAIM's straight-forward summary of contrast and colour
-                  accessibility</a
+                  >WebAIM's straight-forward summary of contrast and colour accessibility</a
                 >
               </li>
               <li>
-                <a
-                  href="https://css-tricks.com/understanding-web-accessibility-color-contrast-guidelines-and-ratios/"
-                  >Stacie Arellano's brilliant explanation of the maths on
-                  CSS-Tricks</a
+                <a href="https://css-tricks.com/understanding-web-accessibility-color-contrast-guidelines-and-ratios/"
+                  >Stacie Arellano's brilliant explanation of the maths on CSS-Tricks</a
                 >
               </li>
               <li>
-                <a href="https://twitter.com/jonnykates"
-                  >Follow me on Twitter: @jonnykates</a
-                >
+                <a href="https://www.buymeacoffee.com/jonnykates">Buy me a coffee</a>
+              </li>
+              <li>
+                <a href="https://twitter.com/jonnykates">Follow me on Twitter: @jonnykates</a>
               </li>
             </ul>
           </div>
         </footer>
-
       </div>
     </div>
 
